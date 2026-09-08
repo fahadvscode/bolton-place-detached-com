@@ -370,7 +370,7 @@ export const PAGE_META = {
     path: "/register",
     title: "Register — Bolton Place Detached Homes Updates",
     description: "Register for community updates.",
-    h1: "Register for Bolton Place Detached Homes Updates",
+    h1: "Register for updates",
   },
   thankYou: {
     path: "/thank-you",
