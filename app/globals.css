@@ -1,0 +1,334 @@
+@import "tailwindcss";
+
+:root {
+  /* Palette is a placeholder pending Opus Homes's official brand assets. */
+  --brand-primary: #3d5a42;
+  --brand-deep: #213326;
+  --brand-accent: #b97c3c;
+  --surface: #faf8f1;
+  --surface-alt: #eeeadc;
+  --text-primary: #20261f;
+  --text-muted: #5a6156;
+  --border: #d9d4c4;
+}
+
+@theme inline {
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-accent: var(--brand-accent);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-surface-card: #fffdf8;
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-on-brand: #ffffff;
+  --color-error: #8b2e2e;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --shadow-card: 0 1px 3px rgba(32, 38, 31, 0.06);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--surface);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+@layer base {
+  h1,
+  h2 {
+    font-family: var(--font-display), ui-serif, Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    color: var(--brand-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+}
+
+.hero-title {
+  color: #faf8f1;
+  text-shadow: 0 1px 18px rgba(33, 51, 38, 0.55);
+}
+
+.hero-lede {
+  color: rgba(250, 248, 241, 0.92);
+  text-shadow: 0 1px 12px rgba(33, 51, 38, 0.45);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 3px;
+}
+
+.prose-measure {
+  max-width: 68ch;
+}
+
+.section-space {
+  padding-block: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-space {
+    padding-block: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-space {
+    padding-block: 8rem;
+  }
+}
+
+.card {
+  background: #fffdf8;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(32, 38, 31, 0.06);
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 100;
+  background: var(--brand-deep);
+  color: var(--surface);
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+details > summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.hp-field {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.placeholder-texture {
+  background-color: var(--brand-deep);
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(185, 124, 60, 0.35), transparent 55%),
+    radial-gradient(ellipse at 80% 80%, rgba(61, 90, 66, 0.4), transparent 50%),
+    linear-gradient(165deg, #213326 0%, #3d5a42 55%, #20261f 100%);
+}
+
+@layer base {
+  a {
+    color: inherit;
+  }
+}
+
+a.btn-primary,
+button.btn-primary {
+  display: inline-flex;
+  min-height: 44px;
+  min-width: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 2px;
+  padding: 0 1.5rem;
+  background-color: var(--brand-accent);
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.btn-primary:hover,
+button.btn-primary:hover:not(:disabled) {
+  background-color: #9a6630;
+  color: #ffffff;
+}
+
+a.btn-primary:focus-visible,
+button.btn-primary:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 3px;
+}
+
+a.btn-primary.btn-compact {
+  min-height: 44px;
+  padding: 0 1rem;
+  font-size: 16px;
+}
+
+a.btn-ghost {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
+  border-radius: 2px;
+  padding: 0 1.5rem;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+a.btn-ghost:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.badge-status {
+  display: inline-block;
+  border-radius: 999px;
+  background-color: var(--brand-accent);
+  color: #ffffff;
+  padding: 0.25rem 0.75rem;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.wordmark-rule {
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  margin-top: 0.35rem;
+  background: var(--brand-accent);
+}
+
+table.facts {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.facts th,
+table.facts td {
+  text-align: left;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+table.facts th {
+  font-weight: 600;
+  color: var(--brand-primary);
+  width: 42%;
+  padding-right: 1rem;
+}
+
+@media (max-width: 479px) {
+  table.stack-cards,
+  table.stack-cards tbody,
+  table.stack-cards tr,
+  table.stack-cards th,
+  table.stack-cards td {
+    display: block;
+    width: 100%;
+  }
+
+  table.stack-cards tr {
+    border: 1px solid var(--border);
+    background: #fffdf8;
+    padding: 0.85rem 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  table.stack-cards th,
+  table.stack-cards td {
+    border: 0;
+    padding: 0.15rem 0;
+    width: 100%;
+  }
+
+  table.stack-cards th {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+}
+
+button.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.fade-rise {
+  animation: fade-rise 380ms ease-out both;
+}
+
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-rise {
+    animation: none;
+  }
+}
