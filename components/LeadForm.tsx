@@ -120,15 +120,13 @@ export function LeadForm({
       noValidate
     >
       {embedded ? null : compact ? (
-        <p className="mb-5 font-display text-xl font-semibold text-brand-primary">
-          VIP Registration
-        </p>
+        <p className="mb-3 font-display text-lg font-semibold text-brand-primary">Register</p>
       ) : (
-        <p className="mb-5 font-display text-2xl font-semibold text-brand-primary">
-          Register for Bolton Place detached-home updates
+        <p className="mb-3 font-display text-xl font-semibold text-brand-primary sm:text-2xl">
+          Register for updates
         </p>
       )}
-      <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
+      <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
         <div>
           <label htmlFor={`${id}-first_name`} className={labelClass}>
             First name
@@ -187,8 +185,8 @@ export function LeadForm({
         </div>
       </div>
 
-      <fieldset className="mt-5">
-        <legend className={labelClass}>Are you a licensed real estate agent?</legend>
+      <fieldset className="mt-3">
+        <legend className={labelClass}>Licensed agent?</legend>
         <div className="mt-2 flex gap-6">
           <label className="inline-flex min-h-[44px] items-center gap-2 text-[15px] font-medium text-text-primary">
             <input type="radio" value="yes" className="h-4 w-4 accent-brand-accent" {...form.register("is_broker")} />
@@ -215,8 +213,8 @@ export function LeadForm({
       </div>
       <input type="hidden" {...form.register("ts")} />
 
-      <div className="mt-5">
-        <label className="flex min-h-[44px] items-start gap-3 text-[14px] text-text-primary">
+      <div className="mt-3">
+        <label className="flex min-h-[44px] items-start gap-3 text-[13px] leading-snug text-text-primary sm:text-[14px]">
           <input
             type="checkbox"
             className="mt-1 h-5 w-5 min-h-[20px] min-w-[20px] shrink-0 accent-brand-accent"
@@ -229,7 +227,7 @@ export function LeadForm({
         ) : null}
       </div>
 
-      <div aria-live="polite" className="mt-4 min-h-6 text-sm text-error">
+      <div aria-live="polite" className="mt-2 min-h-5 text-sm text-error">
         {serverError}
       </div>
 
@@ -245,16 +243,17 @@ export function LeadForm({
             Submitting…
           </span>
         ) : (
-          "Register for updates"
+          "Register"
         )}
       </button>
-      <p className="mt-3 text-[13px] text-text-muted">
-        Free to register. No purchase obligation. See the{" "}
-        <a href="/privacy" className="underline underline-offset-2 hover:text-brand-accent">
-          Privacy Policy
-        </a>
-        .
-      </p>
+      {embedded ? null : (
+        <p className="mt-2 text-[12px] text-text-muted">
+          Free. No obligation.{" "}
+          <a href="/privacy" className="underline underline-offset-2 hover:text-brand-accent">
+            Privacy
+          </a>
+        </p>
+      )}
     </form>
   );
 }

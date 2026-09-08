@@ -212,7 +212,7 @@ export default function DetachedVsTownhomePage() {
           </div>
         </div>
       </article>
-      <RegisterBand heading="Register if the detached collection is the product you want" />
+      <RegisterBand heading="Register for detached-home updates" />
     </>
   );
 }

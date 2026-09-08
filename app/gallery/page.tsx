@@ -62,7 +62,7 @@ export default function GalleryPage() {
           <GalleryGrid items={GALLERY_ITEMS} />
         </div>
       </article>
-      <RegisterBand heading="Get notified when official detached renderings are released" />
+      <RegisterBand heading="Get rendering updates" />
     </>
   );
 }

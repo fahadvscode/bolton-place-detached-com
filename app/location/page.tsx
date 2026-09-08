@@ -145,7 +145,7 @@ export default function LocationPage() {
           </div>
         </div>
       </article>
-      <RegisterBand heading="Register for location and site-plan updates" />
+      <RegisterBand heading="Get site-plan updates" />
     </>
   );
 }

@@ -120,7 +120,7 @@ export default function FloorPlansPage() {
           </div>
         </div>
       </article>
-      <RegisterBand heading="Get detached floor-plan updates when they are released" />
+      <RegisterBand heading="Get floor-plan updates" />
     </>
   );
 }

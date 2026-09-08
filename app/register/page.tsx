@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { LeadForm } from "@/components/LeadForm";
 import { JsonLd } from "@/components/JsonLd";
-import { PAGE_META, PATTERNS, REGISTRATION_IMAGE } from "@/lib/content";
+import { PAGE_META, PATTERNS } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
@@ -34,41 +33,16 @@ export default function RegisterPage() {
           }}
           aria-hidden="true"
         />
-        <div className="relative mx-auto grid max-w-[1200px] gap-10 px-5 lg:grid-cols-2 lg:items-start">
-          <div>
-            <p className="eyebrow">VIP Registration</p>
-            <h1 className="mt-3 max-w-[16ch] text-4xl md:text-5xl">{PAGE_META.register.h1}</h1>
-            <div className="prose-measure mt-6 space-y-5 text-text-muted">
-              <p>
-                Register with first name, last name, email, and phone to be added to the Bolton
-                Place update list, with this site tracking the detached-home collection in
-                particular. The Registration Team uses this form only — there is no phone number or
-                email address published on this site.
-              </p>
-              <p>
-                Registration is free and creates no obligation to purchase. Licensed real estate
-                agents should mark the agent field so the list can be kept accurate.
-              </p>
-              <p>
-                Privacy or data-deletion requests also go through this form. Note the request in
-                place of a typical registration interest so it can be routed correctly.
-              </p>
-            </div>
-            <figure className="card mt-8 overflow-hidden">
-              <Image
-                src={REGISTRATION_IMAGE.src}
-                alt={REGISTRATION_IMAGE.alt}
-                width={REGISTRATION_IMAGE.width}
-                height={REGISTRATION_IMAGE.height}
-                sizes="(max-width: 1024px) 100vw, 520px"
-                className="aspect-square h-auto w-full object-cover"
-              />
-              <figcaption className="px-4 py-3 text-sm text-text-muted">
-                {REGISTRATION_IMAGE.caption}
-              </figcaption>
-            </figure>
+        <div className="relative mx-auto max-w-[560px] px-4 sm:px-5">
+          <p className="eyebrow">VIP Registration</p>
+          <h1 className="mt-3 max-w-[16ch] text-3xl sm:text-4xl md:text-5xl">{PAGE_META.register.h1}</h1>
+          <p className="prose-measure mt-4 text-text-muted">
+            First name, last name, email, and phone. Free, no obligation. Privacy requests also use
+            this form.
+          </p>
+          <div className="mt-6">
+            <LeadForm />
           </div>
-          <LeadForm />
         </div>
       </section>
     </>

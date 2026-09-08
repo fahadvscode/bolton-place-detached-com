@@ -231,7 +231,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <RegisterBand heading="Register for detached-home updates when they are released" />
+      <RegisterBand heading="Register for detached-home updates" />
     </>
   );
 }

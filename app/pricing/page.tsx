@@ -111,7 +111,7 @@ export default function PricingPage() {
           </div>
         </div>
       </article>
-      <RegisterBand heading="Register to be notified when detached pricing is released" />
+      <RegisterBand heading="Get pricing updates" />
     </>
   );
 }
