@@ -315,8 +315,7 @@ export const PRICING_ROWS = [
 export const INDEPENDENCE_DISCLAIMER =
   "This is an independent information and registration website for Bolton Place. It is not the official website of Opus Homes and is not affiliated with or endorsed by the builder. All renderings, pricing, sizes, and specifications are for illustration only and are subject to change without notice. E.&O.E.";
 
-export const CASL_CONSENT =
-  "I consent to receive electronic communications about Bolton Place and similar pre-construction opportunities. I understand I can withdraw consent at any time using the unsubscribe link in any message.";
+export const CASL_CONSENT = "I consent to emails about Bolton Place. Unsubscribe anytime.";
 
 export const PRICING_DISCLAIMER = `Prices, sizes, specifications, and availability are subject to change without notice. E.&O.E. Information current as of ${LAST_UPDATED}.`;
 
