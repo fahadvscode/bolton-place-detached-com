@@ -10,15 +10,17 @@ import { captureFirstTouch, readFirstTouch } from "@/lib/utm";
 import { PENDING_CONVERSION_KEY, trackEvent } from "@/lib/analytics";
 
 const inputClass =
-  "mt-1.5 w-full min-h-[44px] rounded-sm border border-border bg-surface-card px-3 py-2.5 text-text-primary";
+  "mt-1.5 w-full min-h-[44px] rounded-sm border border-border bg-surface-card px-3 py-2.5 text-[16px] text-text-primary md:text-[17px]";
 const labelClass = "block text-[15px] font-semibold text-brand-primary";
 
 export function LeadForm({
   id = "register",
   compact = false,
+  embedded = false,
 }: {
   id?: string;
   compact?: boolean;
+  embedded?: boolean;
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -108,10 +110,16 @@ export function LeadForm({
       id={id}
       onSubmit={onSubmit}
       onFocusCapture={onFocusCapture}
-      className={`${compact ? "card scroll-mt-28 p-5 md:p-6" : "card scroll-mt-28 p-6 md:p-8"} text-text-primary`}
+      className={`${
+        embedded
+          ? "scroll-mt-28 p-0"
+          : compact
+            ? "card scroll-mt-28 p-4 sm:p-5 md:p-6"
+            : "card scroll-mt-28 p-5 sm:p-6 md:p-8"
+      } text-text-primary`}
       noValidate
     >
-      {compact ? (
+      {embedded ? null : compact ? (
         <p className="mb-5 font-display text-xl font-semibold text-brand-primary">
           VIP Registration
         </p>
@@ -120,7 +128,7 @@ export function LeadForm({
           Register for Bolton Place detached-home updates
         </p>
       )}
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
         <div>
           <label htmlFor={`${id}-first_name`} className={labelClass}>
             First name
@@ -208,10 +216,10 @@ export function LeadForm({
       <input type="hidden" {...form.register("ts")} />
 
       <div className="mt-5">
-        <label className="flex items-start gap-3 text-[14px] text-text-primary">
+        <label className="flex min-h-[44px] items-start gap-3 text-[14px] text-text-primary">
           <input
             type="checkbox"
-            className="mt-1 h-5 w-5 min-h-[20px] min-w-[20px] accent-brand-accent"
+            className="mt-1 h-5 w-5 min-h-[20px] min-w-[20px] shrink-0 accent-brand-accent"
             {...form.register("casl_consent")}
           />
           <span>{CASL_CONSENT}</span>

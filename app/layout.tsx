@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Analytics, GtmNoscript } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
+import { LeadPopup } from "@/components/LeadPopup";
 import { siteOrganizationSchema, websiteSchema } from "@/lib/schema";
 import { PAGE_META, SITE_NAME, SITE_URL } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
@@ -74,8 +75,9 @@ export default function RootLayout({
         <meta name="msvalidate.01" content={bing} />
         <meta name="theme-color" content="#3D5A42" />
         <link rel="icon" href="/icon-48.png" sizes="48x48" type="image/png" />
+        <link rel="icon" href="/icon-192.png" sizes="192x192" type="image/png" />
         <link rel="icon" href="/favicon.ico" sizes="48x48" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className="flex min-h-full flex-col font-sans antialiased">
@@ -91,6 +93,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <StickyMobileCta />
+        <LeadPopup />
         <Analytics />
       </body>
     </html>

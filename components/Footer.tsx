@@ -4,7 +4,7 @@ import { Wordmark } from "./Wordmark";
 
 export function Footer() {
   return (
-    <footer className="bg-brand-deep text-surface">
+    <footer className="bg-brand-deep pb-24 text-surface md:pb-0">
       <div className="mx-auto max-w-[1200px] px-5 py-16">
         <div className="grid gap-10 md:grid-cols-3">
           <div>

@@ -1,11 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { NAV } from "@/lib/content";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
 
   return (
     <div className="lg:hidden">
@@ -21,7 +35,7 @@ export function MobileNav() {
       {open ? (
         <div
           id="mobile-menu"
-          className="absolute left-0 right-0 top-full border-b border-border bg-surface px-5 py-4 shadow-sm"
+          className="absolute left-0 right-0 top-full z-50 max-h-[min(80dvh,calc(100dvh-4rem))] overflow-y-auto border-b border-border bg-surface px-5 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] shadow-sm"
         >
           <nav aria-label="Mobile">
             <ul className="space-y-1">
